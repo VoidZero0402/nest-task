@@ -2,7 +2,11 @@ import { z } from 'zod';
 
 const EnvironmentVariablesSchema = z.object({
     PORT: z.coerce.number().min(0).max(65535),
-    MONGODB_URI: z.string()
+    POSTGRES_PORT: z.coerce.number(),
+    POSTGRES_HOST: z.string(),
+    POSTGRES_USERNAME: z.string(),
+    POSTGRES_PASSWORD: z.string(),
+    POSTGRES_DATABASE: z.string(),
 });
 
 export function validate(config: Record<string, unknown>) {
