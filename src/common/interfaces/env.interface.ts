@@ -5,4 +5,6 @@ export interface EnvConfig {
     POSTGRES_USERNAME: string;
     POSTGRES_PASSWORD: string;
     POSTGRES_DATABASE: string;
+    MONGODB_URI: string;
+    MONGODB_DATABASE: string;
 }
