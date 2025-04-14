@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { EnvConfig } from 'src/common/interfaces/env.interface';
 
 export class TypeOrmConfig {
-    static getFactory(configService: ConfigService<EnvConfig>): TypeOrmModuleOptions {
+    static async getFactory(configService: ConfigService<EnvConfig>): Promise<TypeOrmModuleOptions> {
         return {
             type: 'postgres',
             port: configService.get('POSTGRES_PORT'),

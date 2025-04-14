@@ -9,6 +9,9 @@ const EnvironmentVariablesSchema = z.object({
     POSTGRES_DATABASE: z.string(),
     MONGODB_URI: z.string(),
     MONGODB_DATABASE: z.string(),
+    REDIS_URL: z.string(),
+    REDIS_PASSWORD: z.string(),
+    CACHE_TTL: z.coerce.number(),
 });
 
 export function validate(config: Record<string, unknown>) {

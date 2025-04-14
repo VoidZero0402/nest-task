@@ -7,4 +7,7 @@ export interface EnvConfig {
     POSTGRES_DATABASE: string;
     MONGODB_URI: string;
     MONGODB_DATABASE: string;
+    REDIS_URL: string;
+    REDIS_PASSWORD: string;
+    CACHE_TTL: number;
 }
