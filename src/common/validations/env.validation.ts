@@ -10,6 +10,8 @@ const EnvironmentVariablesSchema = z.object({
     MONGODB_URI: z.string(),
     MONGODB_DATABASE: z.string(),
     REDIS_URL: z.string(),
+    REDIS_HOST: z.string(),
+    REDIS_PORT: z.coerce.number(),
     REDIS_PASSWORD: z.string(),
     CACHE_TTL: z.coerce.number(),
 });

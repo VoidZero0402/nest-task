@@ -8,6 +8,8 @@ export interface EnvConfig {
     MONGODB_URI: string;
     MONGODB_DATABASE: string;
     REDIS_URL: string;
+    REDIS_HOST: string;
+    REDIS_PORT: number;
     REDIS_PASSWORD: string;
     CACHE_TTL: number;
 }
