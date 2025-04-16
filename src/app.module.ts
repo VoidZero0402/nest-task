@@ -5,10 +5,10 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { CacheModule } from '@nestjs/cache-manager';
 import { RedisModule } from './common/packages/ioredis';
 import { validate } from './common/validations/env.validation';
-import { TypeOrmConfig } from './config/typeorm.config';
-import { MongooseConfig } from './config/mongoose.config';
-import { CacheConfig } from './config/cache.config';
-import { IORedisConfig } from './config/ioredis.config';
+import { getTypeOrmFactory } from './config/typeorm.config';
+import { getMongooseFactory } from './config/mongoose.config';
+import { getCacheFactory } from './config/cache.config';
+import { getIORedisFactory } from './config/ioredis.config';
 
 @Module({
     imports: [
@@ -18,20 +18,20 @@ import { IORedisConfig } from './config/ioredis.config';
             validate,
         }),
         TypeOrmModule.forRootAsync({
-            useFactory: TypeOrmConfig.getFactory,
+            useFactory: getTypeOrmFactory,
             inject: [ConfigService],
         }),
         MongooseModule.forRootAsync({
-            useFactory: MongooseConfig.getFactory,
+            useFactory: getMongooseFactory,
             inject: [ConfigService],
         }),
         CacheModule.registerAsync({
             isGlobal: true,
-            useFactory: CacheConfig.getFactory,
+            useFactory: getCacheFactory,
             inject: [ConfigService],
         }),
         RedisModule.forRootAsync({
-            useFactory: IORedisConfig.getFactory,
+            useFactory: getIORedisFactory,
             inject: [ConfigService],
         }),
     ],

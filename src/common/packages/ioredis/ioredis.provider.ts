@@ -13,7 +13,7 @@ export function createRedisProvider(options: RedisModuleOptions): Provider {
 export function createRedisAsyncProvider(options: RedisModuleAsyncOptions): Provider {
     return {
         provide: getRedisToken(options.name),
-        useFactory: async (...args: any[]) => {
+        useFactory: async (...args: unknown[]) => {
             const redisOptions = options.useFactory ? await options.useFactory(...args) : {};
             return new Redis(redisOptions);
         },
